@@ -1,0 +1,101 @@
+:root {
+    --background-color: #fafafa;
+    --text-color: #444;
+    --border-color: #ddd;
+    --hover-color: #f5f5f5;
+    --selected-bg: #e0f2f1;
+    --accent-color: #4f9a94;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 50px;
+    color: var(--text-color);
+}
+
+.dropdown {
+    position: relative;
+    width: 200px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dropdown-arrow {
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-color);
+}
+
+.dropdown-item.selected {
+    background-color: var(--selected-bg);
+    position: relative;
+}
+
+.dropdown-item.selected::after {
+    content: "✔";
+    position: absolute;
+    right: 16px;
+    color: var(--accent-color);
+}
+
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+.dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.selected-item {
+    width: 200px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.selected-text {
+    color: var(--accent-color);
+}
